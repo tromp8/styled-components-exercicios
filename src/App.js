@@ -1,6 +1,7 @@
 import React from "react";
 import CardVideo from "./Componentes/CardVideo";
-import "./styles.css";
+import { Botao, Footer, GlobalStyle, Header, Main, MenuVertical, PainelVideos } from "./App.styled";
+
 
 export default function App() {
   const card1 = {
@@ -10,38 +11,41 @@ export default function App() {
   };
 
   return (
-    <div>
+    <>
+      <GlobalStyle/>
+
       <div className="tela-inteira">
-        <header>
-          <h1>LabeTube</h1>
-          <input type="text" placeholder="Busca" id="campoDeBusca" />
-        </header>
+        <Header>
+            <h1>LabeTube</h1>
+            <input type="text" placeholder="Busca" id="campoDeBusca" />
+        </Header>
 
-        <main>
-          <nav className="menu-vertical">
-            <ul>
-              <li className="botoes-meunu-vertical">Início</li>
-              <li className="botoes-meunu-vertical">Em alta</li>
-              <li className="botoes-meunu-vertical">Inscrições</li>
-              <hr />
-              <li className="botoes-meunu-vertical">Originais</li>
-              <li className="botoes-meunu-vertical">Histórico</li>
-            </ul>
-          </nav>
+        <Main>
+          <MenuVertical>
+              <ul>
+                <Botao>Início</Botao>
+                <Botao>Em alta</Botao>
+                <Botao>Inscrições</Botao>
+                <hr />
+                <Botao>Originais</Botao>
+                <Botao>Histórico</Botao>
+              </ul>
+          </MenuVertical>
 
-          <section className="painel-de-videos">
+          <PainelVideos>
             <CardVideo
-              image1={card1.imagemDoVideo}
-              titulo={card1.titulo}
-              textoAlternativo={card1.textoAlternativo}
+                image1={card1.imagemDoVideo}
+                titulo={card1.titulo}
+                textoAlternativo={card1.textoAlternativo}
             />
-          </section>
-        </main>
+          </PainelVideos>
+        </Main>
 
-        <footer>
-          <h4>Oi! Eu moro no footer!</h4>
-        </footer>
+        <Footer>
+            <h4>Oi! Eu moro no footer!</h4>
+        </Footer>
       </div>
-    </div>
+    </>
+    
   );
 }
